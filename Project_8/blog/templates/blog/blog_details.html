@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title># 2 Template</title>
+</head>
+<body>
+    <h1>Blog filter page</h1>
+    <hr>
+    {% comment %} Yes/No & plural {% endcomment %}
+    <p>Author available?:{{ post.Author| yesno:"Yes,No,Maybe"}}</p>
+    <p>Comments count?:{{ post.Comments_count}} comment{{ post.Comments_count|pluralize}}</p>
+    <hr>
+    <p>This are the Text Filters</p>
+    {% comment %} Text filters {% endcomment %}
+    <p><b>Title(Normal) : </b>{{post.Title}}</p>
+    <p><b>UpperCase(upper) : </b>{{post.Title|upper}}</p>
+    <p><b>Lowercase(lower) : </b>{{post.Title|lower}}</p>
+    <p><b>Capital(capfirst) : </b>{{post.Title|capfirst }}</p>
+    <p><b>Title(title) : </b>{{post.Title|title}}</p>
+    <p><b>TruncateChar(trancateChar) : </b>{{post.Title|truncatechars:20}}</p>
+    <p><b>TrucateWord(truncatewords) : </b>{{post.Title|truncatewords:2}}</p>
+    <p><b>LineBreak(linebreaks) : </b>{{post.Title|linebreaks}}</p>
+    <hr>
+    <p>These are the Number filters</p>
+    <p><b>Original Price:{{post.Price}}</b></p>
+    <p><b>Updated Price:{{post.Price|add:5}}</b></p>
+    {% comment %} Division By{% endcomment %}
+    {% if post.Number|divisibleby:2 %}
+        <p>{{ post.Number }} is divisible by 2</p>
+    {% else %}
+        <p>{{ post.Number }} is not divisible by 2</p>
+    {% endif %}
+    <hr>
+    <p>These are the List filters</p>
+    {% comment %} List filters {% endcomment %}
+    <p><b>Tags:</b> {{post.Tags}}</p>
+    <p><b>First Tag:</b> {{post.Tags|first}}</p>
+    <p><b>Last Tag:</b> {{post.Tags|last}}</p>
+    <p><b>Count of Tags:</b> {{post.Tags|length}}</p>
+    <p><b>First 2 Tags:</b> {{post.Tags|slice:'2'}}</p>
+    <p><b>Join  Tags:</b> {{post.Tags|join:", "}}</p>
+    <hr>
+    {% comment %}Date and time filters{% endcomment %}
+    <p><b>Created at: </b>{{post.Created_at}}</p>
+    <p><b>Formatted Date: </b>{{post.Created_at|date:"D  M Y"}}</p>
+    <p><b>Time only: </b>{{post.Created_at|time:"H:i"}}</p>
+    <hr>
+    {% comment %}Encoding and Decoding {% endcomment %}
+    <p><b>Title(Encode) : </b>{{post.Title|urlencode}}</p>
+    <p><b>Float (Format) : </b>{{ 324.134| floatformat:2}}</p>
+
+
+
+
+    <p><b></b></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %} {% endcomment %}
